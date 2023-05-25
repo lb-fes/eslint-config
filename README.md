@@ -2,13 +2,13 @@
 
 [![npm](https://img.shields.io/npm/v/@antfu/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@antfu/eslint-config)
 
-- Single quotes, no semi
-- Auto fix for formatting (aimed to be used standalone **without** Prettier)
-- Designed to work with TypeScript, Vue out-of-box
-- Lint also for json, yaml, markdown
-- Sorted imports, dangling commas
-- Reasonable defaults, best practices, only one-line of config
-- **Style principle**: Minimal for reading, stable for diff
+- 单引号，无分号
+- 自动修复格式（目标是单独使用，无需Prettier）
+- 设计为与TypeScript，Vue开箱即用
+- 也对json，yaml，markdown进行Lint检查
+- 排序的导入，悬挂的逗号
+- 合理的默认设置，最佳实践，只需一行配置
+- **样式原则**：最小化阅读，稳定的差异（注：这里的"稳定的差异"可能指的是代码改动在版本控制系统如git中产生的差异清晰易读，利于代码审查和版本比较）
 
 ## Usage
 
@@ -26,7 +26,9 @@ pnpm add -D eslint @antfu/eslint-config
 }
 ```
 
-> You don't need `.eslintignore` normally as it has been provided by the preset.
+> 通常情况下，你不需要`.eslintignore`文件，因为预设已经提供了它。
+>
+> 这里的意思是，你所使用的ESLint预设（即之前提到的`extends: ['@antfu']`）可能已经内置了一个默认的`.eslintignore`配置。`.eslintignore`文件用于告诉ESLint忽略哪些文件或目录，不进行lint检查。因此，如果预设已经提供了合理的忽略规则，你可能就不需要自己再手动创建和管理这个文件了。
 
 ### Add script for package.json
 
@@ -57,7 +59,7 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 
 ### TypeScript Aware Rules
 
-Type aware rules are enabled when a `tsconfig.eslint.json` is found in the project root, which will introduce some stricter rules into your project. If you want to enable it while have no `tsconfig.eslint.json` in the project root, you can change tsconfig name by modifying `ESLINT_TSCONFIG` env. 
+当在项目根目录中发现`tsconfig.eslint.json`文件时，将启用类型感知规则，这将在你的项目中引入一些更严格的规则。如果你想启用它，但项目根目录中没有`tsconfig.eslint.json`文件，你可以通过修改`ESLINT_TSCONFIG`环境变量来更改tsconfig的名称。
 
 ```js
 // .eslintrc.js
